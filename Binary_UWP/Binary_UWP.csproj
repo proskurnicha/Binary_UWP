@@ -95,7 +95,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Converters\DateFormatConverter .cs" />
+    <Compile Include="Converters\DateFormatConverter.cs" />
+    <Compile Include="Converters\TimeFormatConverter .cs" />
     <Compile Include="Models\Academy.cs" />
     <Compile Include="Models\Aircraft.cs" />
     <Compile Include="Models\AircraftModel.cs" />
@@ -129,6 +130,9 @@
     <Compile Include="Views\AcademyView.xaml.cs">
       <DependentUpon>AcademyView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\AircraftView.xaml.cs">
+      <DependentUpon>AircraftView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\FlightView.xaml.cs">
       <DependentUpon>FlightView.xaml</DependentUpon>
     </Compile>
@@ -158,6 +162,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Views\AcademyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AircraftView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

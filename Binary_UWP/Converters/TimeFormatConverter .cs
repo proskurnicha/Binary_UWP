@@ -7,7 +7,7 @@ using Windows.UI.Xaml.Data;
 
 namespace Binary_UWP.Converters
 {
-    public class DateFormatConverter : IValueConverter
+    public class TimeFormatConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {

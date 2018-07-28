@@ -1,4 +1,5 @@
 ﻿using Binary_UWP;
+using Binary_UWP.Views;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -12,15 +13,15 @@ namespace HamburgerMenuApp
 
             // по умолчанию открываем страницу home.xaml
             myFrame.Navigate(typeof(FlightView));
-            TitleTextBlock.Text = "Главная";
+            TitleTextBlock.Text = "Flights";
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (academy.IsSelected)
+            if (aircrafts.IsSelected)
             {
-                myFrame.Navigate(typeof(AcademyView));
-                TitleTextBlock.Text = "Academy";
+                myFrame.Navigate(typeof(AircraftView));
+                TitleTextBlock.Text = "Aircrafts";
             }
             else if (flights.IsSelected)
             {
@@ -29,7 +30,7 @@ namespace HamburgerMenuApp
             }
             else if (settings.IsSelected)
             {
-                myFrame.Navigate(typeof(FlightView));
+                myFrame.Navigate(typeof(AcademyView));
                 TitleTextBlock.Text = "Other";
             }
         }
