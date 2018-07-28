@@ -19,5 +19,7 @@ namespace Binary_UWP.Models
         public TimeSpan ArrivalTime { get; set; }
 
         public List<Ticket> Tickets { get; set; }
+
+        public string Way => $"{DeparturePoint} - {ArrivalPoint}";
     }
 }

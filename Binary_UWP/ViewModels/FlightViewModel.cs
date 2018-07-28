@@ -13,7 +13,7 @@ namespace Binary_UWP.ViewModels
     {
         private FlightService flightService;
 
-        public FlightViewModel() 
+        public FlightViewModel()
         {
             Title = "Flight";
             flightService = new FlightService();
@@ -38,25 +38,12 @@ namespace Binary_UWP.ViewModels
         public async void Search()
         {
             Flights.Clear();
-            List<Flight> tempFlights = await flightService.GetFlights();
-            //if (string.IsNullOrWhiteSpace(SearchFilter))
-            //{
-                foreach (var student in tempFlights)
-                {
-                    Flights.Add(student);
-                }
-            //}
-            //else
-            //{
-            //    foreach (var student in _academy.GetByStudentName(SearchFilter))
-            //    {
-            //        Students.Add(student);
-            //    }
-            //    foreach (var student in _academy.GetByStudentCity(SearchFilter))
-            //    {
-            //        Students.Add(student);
-            //    }
-            //}
+
+            List<Flight> tempFlights = await flightService.GetAll();
+            foreach (var student in tempFlights)
+            {
+                Flights.Add(student);
+            }
         }
     }
 }

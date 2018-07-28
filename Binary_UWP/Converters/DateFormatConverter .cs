@@ -14,8 +14,8 @@ namespace Binary_UWP.Converters
             if (value == null)
                 return null;
 
-            DateTime dt = DateTime.Parse(value.ToString());
-            return dt.ToString("dd/MM/yyyy");
+            TimeSpan dt = TimeSpan.Parse(value.ToString());
+            return $"{dt.Hours}:{dt.Minutes}";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)
