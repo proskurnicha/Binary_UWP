@@ -97,14 +97,35 @@
     </Compile>
     <Compile Include="Converters\DateFormatConverter .cs" />
     <Compile Include="Models\Academy.cs" />
+    <Compile Include="Models\Aircraft.cs" />
+    <Compile Include="Models\AircraftModel.cs" />
+    <Compile Include="Models\Crew.cs" />
+    <Compile Include="Models\Departure.cs" />
     <Compile Include="Models\Flight.cs" />
+    <Compile Include="Models\Pilot.cs" />
+    <Compile Include="Models\Stewardess.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Ticket.cs" />
+    <Compile Include="Models\TypeAircraft.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AircraftService.cs" />
+    <Compile Include="Services\CrewService.cs" />
+    <Compile Include="Services\DepartureService.cs" />
     <Compile Include="Services\FlightService.cs" />
+    <Compile Include="Services\PilotService.cs" />
+    <Compile Include="Services\StewardessService.cs" />
+    <Compile Include="Services\TicketService.cs" />
+    <Compile Include="Services\TypeAircraftService.cs" />
     <Compile Include="ViewModels\AcademyViewModel.cs" />
+    <Compile Include="ViewModels\AircraftViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\CrewViewModel.cs" />
+    <Compile Include="ViewModels\DepartureViewModel.cs" />
     <Compile Include="ViewModels\FlightViewModel.cs" />
+    <Compile Include="ViewModels\PilotViewModel.cs" />
+    <Compile Include="ViewModels\StewardessViewModel.cs" />
+    <Compile Include="ViewModels\TicketViewModel.cs" />
+    <Compile Include="ViewModels\TypeAircraftViewModel.cs" />
     <Compile Include="Views\AcademyView.xaml.cs">
       <DependentUpon>AcademyView.xaml</DependentUpon>
     </Compile>
