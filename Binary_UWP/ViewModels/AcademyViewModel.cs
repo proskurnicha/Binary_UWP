@@ -17,6 +17,7 @@ namespace Binary_UWP.ViewModels
         }
 
         private string _searchFilter;
+
         public string SearchFilter
         {
             get { return _searchFilter; }
