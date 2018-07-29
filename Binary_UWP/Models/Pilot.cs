@@ -19,5 +19,7 @@ namespace Binary_UWP.Models
         public string Surname { get; set; }
 
         public int Experience { get; set; }
+
+        public string FullName => $"{Surname} {Name}";
     }
 }

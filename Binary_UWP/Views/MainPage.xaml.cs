@@ -28,11 +28,36 @@ namespace HamburgerMenuApp
                 myFrame.Navigate(typeof(FlightView));
                 TitleTextBlock.Text = "Flights";
             }
-            else if (settings.IsSelected)
+            else if (crews.IsSelected)
             {
-                myFrame.Navigate(typeof(AcademyView));
-                TitleTextBlock.Text = "Other";
+                myFrame.Navigate(typeof(CrewView));
+                TitleTextBlock.Text = "Crews";
             }
+            else if (departures.IsSelected)
+            {
+                myFrame.Navigate(typeof(DepartureView));
+                TitleTextBlock.Text = "Departures";
+            }
+            else if (pilots.IsSelected)
+            {
+                myFrame.Navigate(typeof(PilotView));
+                TitleTextBlock.Text = "Pilots";
+            }
+            else if (stewardess.IsSelected)
+            {
+                myFrame.Navigate(typeof(StewardessView));
+                TitleTextBlock.Text = "Stewardesses";
+            }
+            else if (tickets.IsSelected)
+            {
+                myFrame.Navigate(typeof(TicketView));
+                TitleTextBlock.Text = "Tickets";
+            }
+            //else if (pilot.IsSelected)
+            //{
+            //    myFrame.Navigate(typeof(PilotView));
+            //    TitleTextBlock.Text = "Pilots";
+            //}
         }
 
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)

@@ -15,7 +15,7 @@ namespace Binary_UWP.Services
 
         private static List<TypeAircraft> TypeAircrafts;
 
-        private string api = App.Api + "TypeAircrafts";
+        private string api = App.Api + "TypesAircraft";
 
         public async Task<List<TypeAircraft>> GetAll()
         {

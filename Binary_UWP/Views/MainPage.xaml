@@ -26,11 +26,23 @@
                     <ListBoxItem Name="aircrafts">
                         <TextBlock FontSize="24" Text="Aircrafts" />
                     </ListBoxItem>
+                    <ListBoxItem Name="crews">
+                        <TextBlock FontSize="24" Text="Crews" />
+                    </ListBoxItem>
+                    <ListBoxItem Name="departures">
+                        <TextBlock FontSize="24" Text="Departures" />
+                    </ListBoxItem>
                     <ListBoxItem Name="flights">
                         <TextBlock FontSize="24" Text="Flights" />
+                    </ListBoxItem>    
+                    <ListBoxItem Name="pilots">
+                        <TextBlock FontSize="24" Text="Pilots" />
                     </ListBoxItem>
-                    <ListBoxItem Name="settings">
-                        <TextBlock FontSize="24" Text="Other" />
+                    <ListBoxItem Name="stewardess">
+                        <TextBlock FontSize="24" Text="Stewardesses" />
+                    </ListBoxItem>
+                    <ListBoxItem Name="tickets">
+                        <TextBlock FontSize="24" Text="Tickets" />
                     </ListBoxItem>
                 </ListBox>
             </SplitView.Pane>

@@ -15,7 +15,7 @@ namespace Binary_UWP.Services
 
         private static List<Stewardess> Stewardesss;
 
-        private string api = App.Api + "Stewardesss";
+        private string api = App.Api + "Stewardesses";
 
         public async Task<List<Stewardess>> GetAll()
         {
