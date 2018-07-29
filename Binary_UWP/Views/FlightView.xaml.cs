@@ -16,7 +16,6 @@ namespace Binary_UWP
             this.InitializeComponent();
             ViewModel = new FlightViewModel();
             this.DataContext = new Flight();
-
         }
 
         public FlightViewModel ViewModel { get; set; }
@@ -25,22 +24,13 @@ namespace Binary_UWP
         {
             dialogBox.Hide(); // закрываем окно
         }
-        //private void CreatedClicked()
-        //{
-        //    ViewModel.CreateClicked();
-        //}
-
-        //void contentView_Loaded(object sender, EventArgs e)
-        //{
-        //    var contentView = (Button)sender;
-        //    // do something
-        //}
 
         void FlightList_ItemClick(object sender, ItemClickEventArgs e)
         {
             Flight selectedFlight = (Flight)e.ClickedItem;
             ViewModel.Flight = selectedFlight;
         }
+
         private void ListTapped(object sender, TappedRoutedEventArgs e)
         {
             FlyoutBase.ShowAttachedFlyout(sender as FrameworkElement);
@@ -50,6 +40,7 @@ namespace Binary_UWP
         {
            ViewModel.Update();
         }
+
         void DeleteEntity(object sender, RoutedEventArgs e)
         {
             ViewModel.Delete();

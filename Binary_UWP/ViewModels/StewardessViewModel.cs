@@ -19,6 +19,7 @@ namespace Binary_UWP.ViewModels
             StewardessService = new StewardessService();
             SearchFilter = "";
             Stewardesss = new ObservableCollection<Stewardess>();
+            Stewardess = new Stewardess();
             Search();
         }
 
@@ -35,14 +36,61 @@ namespace Binary_UWP.ViewModels
 
         public ObservableCollection<Stewardess> Stewardesss { get; private set; }
 
-        public async void Search()
+        public Stewardess Stewardess { get; set; }
+
+        public async Task Search()
         {
             Stewardesss.Clear();
 
             List<Stewardess> tempStewardesss = await StewardessService.GetAll();
-            foreach (var student in tempStewardesss)
+            foreach (var item in tempStewardesss)
             {
-                Stewardesss.Add(student);
+                Stewardesss.Add(item);
+            }
+        }
+
+        public async Task Create()
+        {
+            Stewardess Stewardess = await StewardessService.Create(this.Stewardess);
+            Stewardess = new Stewardess();
+
+            List<Stewardess> tempStewardesss = await StewardessService.GetAll();
+            Stewardesss = new ObservableCollection<Stewardess>();
+            foreach (var item in tempStewardesss)
+            {
+                Stewardesss.Add(item);
+            }
+        }
+
+        public async Task Update()
+        {
+            Stewardess StewardessUpdated = await StewardessService.Update(Stewardess, Stewardess.Id);
+            Stewardess = new Stewardess();
+
+            List<Stewardess> tempStewardesss = await StewardessService.GetAll();
+            Stewardesss = new ObservableCollection<Stewardess>();
+            foreach (var fl in tempStewardesss)
+            {
+                Stewardesss.Add(fl);
+            }
+        }
+
+        public void CreateClicked()
+        {
+            Stewardess = new Stewardess();
+            NotifyPropertyChanged(() => Stewardess);
+        }
+
+        public async Task Delete()
+        {
+            await StewardessService.Delete(Stewardess.Id);
+            Stewardess = new Stewardess();
+            NotifyPropertyChanged(() => Stewardess);
+            List<Stewardess> tempStewardesss = await StewardessService.GetAll();
+            Stewardesss = new ObservableCollection<Stewardess>();
+            foreach (var fl in tempStewardesss)
+            {
+                Stewardesss.Add(fl);
             }
         }
     }

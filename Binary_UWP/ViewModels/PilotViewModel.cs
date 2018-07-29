@@ -19,6 +19,7 @@ namespace Binary_UWP.ViewModels
             PilotService = new PilotService();
             SearchFilter = "";
             Pilots = new ObservableCollection<Pilot>();
+            Pilot = new Pilot();
             Search();
         }
 
@@ -35,14 +36,61 @@ namespace Binary_UWP.ViewModels
 
         public ObservableCollection<Pilot> Pilots { get; private set; }
 
-        public async void Search()
+        public Pilot Pilot { get; set; }
+
+        public async Task Search()
         {
             Pilots.Clear();
 
             List<Pilot> tempPilots = await PilotService.GetAll();
-            foreach (var student in tempPilots)
+            foreach (var item in tempPilots)
             {
-                Pilots.Add(student);
+                Pilots.Add(item);
+            }
+        }
+
+        public async Task Create()
+        {
+            Pilot Pilot = await PilotService.Create(this.Pilot);
+            Pilot = new Pilot();
+
+            List<Pilot> tempPilots = await PilotService.GetAll();
+            Pilots = new ObservableCollection<Pilot>();
+            foreach (var item in tempPilots)
+            {
+                Pilots.Add(item);
+            }
+        }
+
+        public async Task Update()
+        {
+            Pilot PilotUpdated = await PilotService.Update(Pilot, Pilot.Id);
+            Pilot = new Pilot();
+
+            List<Pilot> tempPilots = await PilotService.GetAll();
+            Pilots = new ObservableCollection<Pilot>();
+            foreach (var fl in tempPilots)
+            {
+                Pilots.Add(fl);
+            }
+        }
+
+        public void CreateClicked()
+        {
+            Pilot = new Pilot();
+            NotifyPropertyChanged(() => Pilot);
+        }
+
+        public async Task Delete()
+        {
+            await PilotService.Delete(Pilot.Id);
+            Pilot = new Pilot();
+            NotifyPropertyChanged(() => Pilot);
+            List<Pilot> tempPilots = await PilotService.GetAll();
+            Pilots = new ObservableCollection<Pilot>();
+            foreach (var fl in tempPilots)
+            {
+                Pilots.Add(fl);
             }
         }
     }

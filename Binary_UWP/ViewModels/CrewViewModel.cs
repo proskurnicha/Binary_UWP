@@ -19,6 +19,7 @@ namespace Binary_UWP.ViewModels
             CrewService = new CrewService();
             SearchFilter = "";
             Crews = new ObservableCollection<Crew>();
+            Crew = new Crew();
             Search();
         }
 
@@ -35,14 +36,61 @@ namespace Binary_UWP.ViewModels
 
         public ObservableCollection<Crew> Crews { get; private set; }
 
-        public async void Search()
+        public Crew Crew { get; set; }
+
+        public async Task Search()
         {
             Crews.Clear();
 
             List<Crew> tempCrews = await CrewService.GetAll();
-            foreach (var student in tempCrews)
+            foreach (var item in tempCrews)
             {
-                Crews.Add(student);
+                Crews.Add(item);
+            }
+        }
+
+        public async Task Create()
+        {
+            Crew Crew = await CrewService.Create(this.Crew);
+            Crew = new Crew();
+
+            List<Crew> tempCrews = await CrewService.GetAll();
+            Crews = new ObservableCollection<Crew>();
+            foreach (var item in tempCrews)
+            {
+                Crews.Add(item);
+            }
+        }
+
+        public async Task Update()
+        {
+            Crew CrewUpdated = await CrewService.Update(Crew, Crew.Id);
+            Crew = new Crew();
+
+            List<Crew> tempCrews = await CrewService.GetAll();
+            Crews = new ObservableCollection<Crew>();
+            foreach (var fl in tempCrews)
+            {
+                Crews.Add(fl);
+            }
+        }
+
+        public void CreateClicked()
+        {
+            Crew = new Crew();
+            NotifyPropertyChanged(() => Crew);
+        }
+
+        public async Task Delete()
+        {
+            await CrewService.Delete(Crew.Id);
+            Crew = new Crew();
+            NotifyPropertyChanged(() => Crew);
+            List<Crew> tempCrews = await CrewService.GetAll();
+            Crews = new ObservableCollection<Crew>();
+            foreach (var fl in tempCrews)
+            {
+                Crews.Add(fl);
             }
         }
     }

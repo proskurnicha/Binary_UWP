@@ -1,4 +1,5 @@
-﻿using Binary_UWP.ViewModels;
+﻿using Binary_UWP.Models;
+using Binary_UWP.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -27,8 +28,36 @@ namespace Binary_UWP.Views
         {
             this.InitializeComponent();
             ViewModel = new StewardessViewModel();
+            this.DataContext = new Stewardess();
         }
 
         public StewardessViewModel ViewModel { get; set; }
+
+        private void ButtonClose_Click(object sender, RoutedEventArgs e)
+        {
+           dialogBox.Hide(); // закрываем окно
+        }
+
+        void StewardessList_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Stewardess selectedStewardess = (Stewardess)e.ClickedItem;
+            ViewModel.Stewardess = selectedStewardess;
+        }
+
+        private void ListTapped(object sender, TappedRoutedEventArgs e)
+        {
+            FlyoutBase.ShowAttachedFlyout(sender as FrameworkElement);
+        }
+
+        void SaveEntity(object sender, RoutedEventArgs e)
+        {
+            ViewModel.Update();
+        }
+
+        void DeleteEntity(object sender, RoutedEventArgs e)
+        {
+            ViewModel.Delete();
+        }
+
     }
 }

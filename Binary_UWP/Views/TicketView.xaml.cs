@@ -1,4 +1,5 @@
-﻿using Binary_UWP.ViewModels;
+﻿using Binary_UWP.Models;
+using Binary_UWP.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -27,8 +28,36 @@ namespace Binary_UWP.Views
         {
             this.InitializeComponent();
             ViewModel = new TicketViewModel();
+            this.DataContext = new Ticket();
         }
 
         public TicketViewModel ViewModel { get; set; }
+
+        private void ButtonClose_Click(object sender, RoutedEventArgs e)
+        {
+            //dialogBox.Hide(); // закрываем окно
+        }
+
+        void TicketList_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Ticket selectedTicket = (Ticket)e.ClickedItem;
+            ViewModel.Ticket = selectedTicket;
+        }
+
+        private void ListTapped(object sender, TappedRoutedEventArgs e)
+        {
+            FlyoutBase.ShowAttachedFlyout(sender as FrameworkElement);
+        }
+
+        void SaveEntity(object sender, RoutedEventArgs e)
+        {
+            ViewModel.Update();
+        }
+
+        void DeleteEntity(object sender, RoutedEventArgs e)
+        {
+            ViewModel.Delete();
+        }
+
     }
 }

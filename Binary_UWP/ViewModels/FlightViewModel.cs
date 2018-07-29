@@ -43,9 +43,9 @@ namespace Binary_UWP.ViewModels
             Flights.Clear();
 
             List<Flight> tempFlights = await flightService.GetAll();
-            foreach (var student in tempFlights)
+            foreach (var item in tempFlights)
             {
-                Flights.Add(student);
+                Flights.Add(item);
             }
         }
 
@@ -56,9 +56,9 @@ namespace Binary_UWP.ViewModels
 
             List<Flight> tempFlights = await flightService.GetAll();
             Flights = new ObservableCollection<Flight>();
-            foreach (var student in tempFlights)
+            foreach (var item in tempFlights)
             {
-                Flights.Add(student);
+                Flights.Add(item);
             }
         }
 

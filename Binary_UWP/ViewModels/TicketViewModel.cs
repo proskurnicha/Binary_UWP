@@ -19,6 +19,7 @@ namespace Binary_UWP.ViewModels
             TicketService = new TicketService();
             SearchFilter = "";
             Tickets = new ObservableCollection<Ticket>();
+            Ticket = new Ticket();
             Search();
         }
 
@@ -35,14 +36,61 @@ namespace Binary_UWP.ViewModels
 
         public ObservableCollection<Ticket> Tickets { get; private set; }
 
-        public async void Search()
+        public Ticket Ticket { get; set; }
+
+        public async Task Search()
         {
             Tickets.Clear();
 
             List<Ticket> tempTickets = await TicketService.GetAll();
-            foreach (var student in tempTickets)
+            foreach (var item in tempTickets)
             {
-                Tickets.Add(student);
+                Tickets.Add(item);
+            }
+        }
+
+        public async Task Create()
+        {
+            Ticket Ticket = await TicketService.Create(this.Ticket);
+            Ticket = new Ticket();
+
+            List<Ticket> tempTickets = await TicketService.GetAll();
+            Tickets = new ObservableCollection<Ticket>();
+            foreach (var item in tempTickets)
+            {
+                Tickets.Add(item);
+            }
+        }
+
+        public async Task Update()
+        {
+            Ticket TicketUpdated = await TicketService.Update(Ticket, Ticket.Id);
+            Ticket = new Ticket();
+
+            List<Ticket> tempTickets = await TicketService.GetAll();
+            Tickets = new ObservableCollection<Ticket>();
+            foreach (var fl in tempTickets)
+            {
+                Tickets.Add(fl);
+            }
+        }
+
+        public void CreateClicked()
+        {
+            Ticket = new Ticket();
+            NotifyPropertyChanged(() => Ticket);
+        }
+
+        public async Task Delete()
+        {
+            await TicketService.Delete(Ticket.Id);
+            Ticket = new Ticket();
+            NotifyPropertyChanged(() => Ticket);
+            List<Ticket> tempTickets = await TicketService.GetAll();
+            Tickets = new ObservableCollection<Ticket>();
+            foreach (var fl in tempTickets)
+            {
+                Tickets.Add(fl);
             }
         }
     }

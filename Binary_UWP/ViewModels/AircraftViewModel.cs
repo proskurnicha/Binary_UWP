@@ -19,6 +19,7 @@ namespace Binary_UWP.ViewModels
             AircraftService = new AircraftService();
             SearchFilter = "";
             Aircrafts = new ObservableCollection<Aircraft>();
+            Aircraft = new Aircraft();
             Search();
         }
 
@@ -35,14 +36,61 @@ namespace Binary_UWP.ViewModels
 
         public ObservableCollection<Aircraft> Aircrafts { get; private set; }
 
-        public async void Search()
+        public Aircraft Aircraft { get; set; }
+
+        public async Task Search()
         {
             Aircrafts.Clear();
 
             List<Aircraft> tempAircrafts = await AircraftService.GetAll();
-            foreach (var student in tempAircrafts)
+            foreach (var item in tempAircrafts)
             {
-                Aircrafts.Add(student);
+                Aircrafts.Add(item);
+            }
+        }
+
+        public async Task Create()
+        {
+            Aircraft Aircraft = await AircraftService.Create(this.Aircraft);
+            Aircraft = new Aircraft();
+
+            List<Aircraft> tempAircrafts = await AircraftService.GetAll();
+            Aircrafts = new ObservableCollection<Aircraft>();
+            foreach (var item in tempAircrafts)
+            {
+                Aircrafts.Add(item);
+            }
+        }
+
+        public async Task Update()
+        {
+            Aircraft AircraftUpdated = await AircraftService.Update(Aircraft, Aircraft.Id);
+            Aircraft = new Aircraft();
+
+            List<Aircraft> tempAircrafts = await AircraftService.GetAll();
+            Aircrafts = new ObservableCollection<Aircraft>();
+            foreach (var fl in tempAircrafts)
+            {
+                Aircrafts.Add(fl);
+            }
+        }
+
+        public void CreateClicked()
+        {
+            Aircraft = new Aircraft();
+            NotifyPropertyChanged(() => Aircraft);
+        }
+
+        public async Task Delete()
+        {
+            await AircraftService.Delete(Aircraft.Id);
+            Aircraft = new Aircraft();
+            NotifyPropertyChanged(() => Aircraft);
+            List<Aircraft> tempAircrafts = await AircraftService.GetAll();
+            Aircrafts = new ObservableCollection<Aircraft>();
+            foreach (var fl in tempAircrafts)
+            {
+                Aircrafts.Add(fl);
             }
         }
     }

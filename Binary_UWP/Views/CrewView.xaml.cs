@@ -1,4 +1,5 @@
-﻿using Binary_UWP.ViewModels;
+﻿using Binary_UWP.Models;
+using Binary_UWP.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -27,8 +28,36 @@ namespace Binary_UWP.Views
         {
             this.InitializeComponent();
             ViewModel = new CrewViewModel();
+            this.DataContext = new Crew();
         }
 
         public CrewViewModel ViewModel { get; set; }
+
+        private void ButtonClose_Click(object sender, RoutedEventArgs e)
+        {
+            dialogBox.Hide(); // закрываем окно
+        }
+
+        void CrewList_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Crew selectedCrew = (Crew)e.ClickedItem;
+            ViewModel.Crew = selectedCrew;
+        }
+
+        private void ListTapped(object sender, TappedRoutedEventArgs e)
+        {
+            FlyoutBase.ShowAttachedFlyout(sender as FrameworkElement);
+        }
+
+        void SaveEntity(object sender, RoutedEventArgs e)
+        {
+            ViewModel.Update();
+        }
+
+        void DeleteEntity(object sender, RoutedEventArgs e)
+        {
+            ViewModel.Delete();
+        }
+
     }
 }

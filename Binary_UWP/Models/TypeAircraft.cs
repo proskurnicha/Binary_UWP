@@ -10,7 +10,7 @@ namespace Binary_UWP.Models
     {
         public int Id { get; set; }
 
-        public AircraftModel AircraftModel { get; set; }
+        public int AircraftModel { get; set; }
 
         public int NumberPlaces { get; set; }
 

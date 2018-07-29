@@ -8,7 +8,7 @@
     xmlns:m="using:Binary_UWP.Models"
     mc:Ignorable="d">
     <Page.Resources>
-        <converter:DateFormatConverter x:Name="DateFormatConverter"/>
+        <!--<converter:DateFormatConverter x:Name="DateFormatConverter"/>-->
     </Page.Resources>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
         <Grid.RowDefinitions>
@@ -20,41 +20,71 @@
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-
-        <ListView Grid.ColumnSpan="3" Grid.Row="1" ItemsSource="{x:Bind ViewModel.Crews}">
+        <Button Content="Create" Click="{x:Bind ViewModel.CreateClicked}" >
+            <Button.Flyout>
+                <Flyout x:Name="dialogBox">
+                    <Flyout.Content>
+                        <StackPanel>
+                            <TextBlock Text="PilotId"></TextBlock>
+                            <TextBox Text="{x:Bind ViewModel.Crew.PilotId, Mode=TwoWay}"></TextBox>
+                            <Button Click="{x:Bind ViewModel.Create}"  Content="Save" Margin="0 10 0 0" />
+                            <Button Click="ButtonClose_Click"   Content="Close" Margin="0 10 0 0" />
+                        </StackPanel>
+                    </Flyout.Content>
+                </Flyout>
+            </Button.Flyout>
+        </Button>
+        <ListView Grid.Row="1" ItemsSource="{x:Bind ViewModel.Crews, Mode=OneWay}" HorizontalAlignment="Center" 
+                  Margin="0,0,0,0" VerticalAlignment="Center" Grid.Column="0"
+                  IsItemClickEnabled="True"
+                  ItemClick="CrewList_ItemClick">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="m:Crew">
-                    <Grid Margin="16">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="40"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="24"/>
-                            <RowDefinition Height="24"/>
-                        </Grid.RowDefinitions>
+                    <Grid Tapped="ListTapped" Background="Transparent">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="24"/>
+                                <RowDefinition Height="24"/>
+                            </Grid.RowDefinitions>
 
-                        <TextBlock Text="{x:Bind Id}"
+                            <TextBlock Text="{x:Bind Id}"
                                    Foreground="Black"
                                    FontSize="16"
                                    Padding="20,0,0,0"
                                    Grid.Column="1"
                                    Grid.Row="0"/>
-                        <StackPanel Orientation="Horizontal"
+                            <StackPanel Orientation="Horizontal"
                                     Grid.Column="1"
                                     Grid.Row="1">
-                            <TextBlock Text="Pilot id:"
+                                <TextBlock Text="Pilot id:"
                                    Foreground="#888888"
                                    FontSize="13"
                                    Padding="20,0,0,0"/>
-                            <TextBlock Text="{x:Bind PilotId}"
+                                <TextBlock Text="{x:Bind PilotId}"
                                    Foreground="#444444"
                                    FontSize="13"
                                    Padding="6,0,0,0"/>
-                        </StackPanel>
+                            </StackPanel>
+                            
+                        </Grid>
+                        <FlyoutBase.AttachedFlyout>
+                            <Flyout>
+                                <StackPanel>
+                                    <TextBlock Text="PilotId"></TextBlock>
+                                    <TextBox Text="{x:Bind PilotId, Mode=TwoWay}"></TextBox>
+                                    <Button  Click ="SaveEntity" Content="Save"></Button>
+                                    <Button  Click ="DeleteEntity" Content="Delete"></Button>
+                                </StackPanel>
+                            </Flyout>
+                        </FlyoutBase.AttachedFlyout>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
     </Grid>
 </Page>
+
+
