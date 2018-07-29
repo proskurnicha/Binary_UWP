@@ -7,8 +7,8 @@
     <Application.Resources>
         <ResourceDictionary x:Key="Light">
             <!-- Color Palette -->
-            <Color x:Key="Orange">#FFA500</Color>
-            <Color x:Key="Teal">#009688</Color>
+            <Color x:Key="Pink">#dd67c4</Color>
+            <Color x:Key="LightPink">#fbf2ef</Color>
             <Color x:Key="Gray1">#676767</Color>
             <Color x:Key="Gray2">#545861</Color>
 
