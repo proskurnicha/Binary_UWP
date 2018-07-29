@@ -60,6 +60,8 @@ namespace Binary_UWP.ViewModels
             {
                 Flights.Add(item);
             }
+            NotifyPropertyChanged(() => Flights);
+
         }
 
         public async Task Update()
@@ -73,6 +75,8 @@ namespace Binary_UWP.ViewModels
             {
                 Flights.Add(fl);
             }
+            NotifyPropertyChanged(() => Flights);
+
         }
 
         public void CreateClicked()
@@ -92,6 +96,8 @@ namespace Binary_UWP.ViewModels
             {
                 Flights.Add(fl);
             }
+            NotifyPropertyChanged(() => Flights);
+
         }
     }
 }

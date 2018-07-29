@@ -60,6 +60,8 @@ namespace Binary_UWP.ViewModels
             {
                 Departures.Add(item);
             }
+            NotifyPropertyChanged(() => Departures);
+
         }
 
         public async Task Update()
@@ -73,6 +75,8 @@ namespace Binary_UWP.ViewModels
             {
                 Departures.Add(fl);
             }
+            NotifyPropertyChanged(() => Departures);
+
         }
 
         public void CreateClicked()
@@ -92,6 +96,8 @@ namespace Binary_UWP.ViewModels
             {
                 Departures.Add(fl);
             }
+            NotifyPropertyChanged(() => Departures);
+
         }
     }
 }

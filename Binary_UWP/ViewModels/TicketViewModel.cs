@@ -60,6 +60,8 @@ namespace Binary_UWP.ViewModels
             {
                 Tickets.Add(item);
             }
+            NotifyPropertyChanged(() => Tickets);
+
         }
 
         public async Task Update()
@@ -73,6 +75,7 @@ namespace Binary_UWP.ViewModels
             {
                 Tickets.Add(fl);
             }
+            NotifyPropertyChanged(() => Tickets);
         }
 
         public void CreateClicked()
@@ -92,6 +95,7 @@ namespace Binary_UWP.ViewModels
             {
                 Tickets.Add(fl);
             }
+            NotifyPropertyChanged(() => Tickets);
         }
     }
 }

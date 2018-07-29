@@ -60,6 +60,8 @@ namespace Binary_UWP.ViewModels
             {
                 Crews.Add(item);
             }
+            NotifyPropertyChanged(() => Crews);
+
         }
 
         public async Task Update()
@@ -73,6 +75,7 @@ namespace Binary_UWP.ViewModels
             {
                 Crews.Add(fl);
             }
+            NotifyPropertyChanged(() => Crews);
         }
 
         public void CreateClicked()
@@ -92,6 +95,8 @@ namespace Binary_UWP.ViewModels
             {
                 Crews.Add(fl);
             }
+            NotifyPropertyChanged(() => Crews);
+
         }
     }
 }

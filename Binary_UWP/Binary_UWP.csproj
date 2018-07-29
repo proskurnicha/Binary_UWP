@@ -97,7 +97,6 @@
     </Compile>
     <Compile Include="Converters\DateFormatConverter.cs" />
     <Compile Include="Converters\TimeFormatConverter .cs" />
-    <Compile Include="Models\Academy.cs" />
     <Compile Include="Models\Aircraft.cs" />
     <Compile Include="Models\AircraftModel.cs" />
     <Compile Include="Models\Crew.cs" />
@@ -105,7 +104,6 @@
     <Compile Include="Models\Flight.cs" />
     <Compile Include="Models\Pilot.cs" />
     <Compile Include="Models\Stewardess.cs" />
-    <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Ticket.cs" />
     <Compile Include="Models\TypeAircraft.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -117,7 +115,6 @@
     <Compile Include="Services\StewardessService.cs" />
     <Compile Include="Services\TicketService.cs" />
     <Compile Include="Services\TypeAircraftService.cs" />
-    <Compile Include="ViewModels\AcademyViewModel.cs" />
     <Compile Include="ViewModels\AircraftViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CrewViewModel.cs" />
@@ -127,9 +124,6 @@
     <Compile Include="ViewModels\StewardessViewModel.cs" />
     <Compile Include="ViewModels\TicketViewModel.cs" />
     <Compile Include="ViewModels\TypeAircraftViewModel.cs" />
-    <Compile Include="Views\AcademyView.xaml.cs">
-      <DependentUpon>AcademyView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\AircraftView.xaml.cs">
       <DependentUpon>AircraftView.xaml</DependentUpon>
     </Compile>
@@ -179,10 +173,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Views\AcademyView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\AircraftView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

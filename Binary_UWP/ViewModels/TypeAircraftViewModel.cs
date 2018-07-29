@@ -47,6 +47,7 @@ namespace Binary_UWP.ViewModels
             {
                 TypeAircrafts.Add(item);
             }
+
         }
 
         public async Task Create()
@@ -60,6 +61,8 @@ namespace Binary_UWP.ViewModels
             {
                 TypeAircrafts.Add(item);
             }
+            NotifyPropertyChanged(() => TypeAircrafts);
+
         }
 
         public async Task Update()
@@ -73,6 +76,8 @@ namespace Binary_UWP.ViewModels
             {
                 TypeAircrafts.Add(fl);
             }
+            NotifyPropertyChanged(() => TypeAircrafts);
+
         }
 
         public void CreateClicked()
@@ -92,6 +97,8 @@ namespace Binary_UWP.ViewModels
             {
                 TypeAircrafts.Add(fl);
             }
+            NotifyPropertyChanged(() => TypeAircrafts);
+
         }
     }
 }

@@ -60,6 +60,8 @@ namespace Binary_UWP.ViewModels
             {
                 Stewardesss.Add(item);
             }
+            NotifyPropertyChanged(() => Stewardesss);
+
         }
 
         public async Task Update()
@@ -73,6 +75,7 @@ namespace Binary_UWP.ViewModels
             {
                 Stewardesss.Add(fl);
             }
+            NotifyPropertyChanged(() => Stewardesss);
         }
 
         public void CreateClicked()
@@ -92,6 +95,8 @@ namespace Binary_UWP.ViewModels
             {
                 Stewardesss.Add(fl);
             }
+            NotifyPropertyChanged(() => Stewardesss);
+
         }
     }
 }
