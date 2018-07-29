@@ -154,6 +154,9 @@
     <Compile Include="Views\TicketView.xaml.cs">
       <DependentUpon>TicketView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\TypeAircraftView.xaml.cs">
+      <DependentUpon>TypeAircraftView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -209,6 +212,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\TicketView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TypeAircraftView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

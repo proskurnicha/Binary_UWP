@@ -58,7 +58,8 @@
                         </Grid.RowDefinitions>
 
                         <Image Source="/Assets/profile.png" Width="36" Height="36" Grid.RowSpan="2" Grid.Column="0"/>
-                        <TextBlock Text="{x:Bind FullName}"
+                        <TextBlock Name="TestBlock"
+                            Text="{x:Bind FullName}"
                                    Foreground="Black"
                                    FontSize="16"
                                    Padding="20,0,0,0"

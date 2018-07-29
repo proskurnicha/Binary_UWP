@@ -12,5 +12,6 @@ namespace Binary_UWP
         }
 
         public AcademyViewModel ViewModel { get; set; }
+
     }
 }

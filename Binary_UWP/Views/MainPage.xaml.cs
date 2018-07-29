@@ -53,11 +53,11 @@ namespace HamburgerMenuApp
                 myFrame.Navigate(typeof(TicketView));
                 TitleTextBlock.Text = "Tickets";
             }
-            //else if (pilot.IsSelected)
-            //{
-            //    myFrame.Navigate(typeof(PilotView));
-            //    TitleTextBlock.Text = "Pilots";
-            //}
+            else if (typesaircraft.IsSelected)
+            {
+                myFrame.Navigate(typeof(TypeAircraftView));
+                TitleTextBlock.Text = "Types Aircraft";
+            }
         }
 
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)

@@ -44,6 +44,9 @@
                     <ListBoxItem Name="tickets">
                         <TextBlock FontSize="24" Text="Tickets" />
                     </ListBoxItem>
+                    <ListBoxItem Name="typesaircraft">
+                        <TextBlock FontSize="24" Text="Types Aircraft" />
+                    </ListBoxItem>
                 </ListBox>
             </SplitView.Pane>
             <SplitView.Content>

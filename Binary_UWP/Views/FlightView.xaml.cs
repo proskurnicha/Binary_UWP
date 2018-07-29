@@ -1,4 +1,5 @@
-﻿using Binary_UWP.ViewModels;
+﻿using Binary_UWP.Models;
+using Binary_UWP.ViewModels;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -10,14 +11,15 @@ namespace Binary_UWP
         {
             this.InitializeComponent();
             ViewModel = new FlightViewModel();
+            this.DataContext = new Flight();
+
         }
 
         public FlightViewModel ViewModel { get; set; }
 
-        private void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void Button_Click2(object sender, RoutedEventArgs e)
         {
-            Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(AcademyView), e.OriginalSource);
+            dialogBox.Hide(); // закрываем окно
         }
     }
 }
