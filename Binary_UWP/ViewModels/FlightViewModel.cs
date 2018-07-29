@@ -19,6 +19,7 @@ namespace Binary_UWP.ViewModels
             flightService = new FlightService();
             SearchFilter = "";
             Flights = new ObservableCollection<Flight>();
+            Flight = new Flight();
             Search();
         }
 
@@ -35,7 +36,9 @@ namespace Binary_UWP.ViewModels
 
         public ObservableCollection<Flight> Flights { get; private set; }
 
-        public async void Search()
+        public Flight Flight { get; set; }
+
+        public async Task Search()
         {
             Flights.Clear();
 
@@ -43,6 +46,51 @@ namespace Binary_UWP.ViewModels
             foreach (var student in tempFlights)
             {
                 Flights.Add(student);
+            }
+        }
+
+        public async Task Create()
+        {
+            Flight  flight = await flightService.Create(Flight);
+            Flight = new Flight();
+
+            List<Flight> tempFlights = await flightService.GetAll();
+            Flights = new ObservableCollection<Flight>();
+            foreach (var student in tempFlights)
+            {
+                Flights.Add(student);
+            }
+        }
+
+        public async Task Update()
+        {
+            Flight flightUpdated = await flightService.Update(Flight, Flight.Id);
+            Flight = new Flight();
+
+            List<Flight> tempFlights = await flightService.GetAll();
+            Flights = new ObservableCollection<Flight>();
+            foreach (var fl in tempFlights)
+            {
+                Flights.Add(fl);
+            }
+        }
+
+        public void CreateClicked()
+        {
+            Flight = new Flight();
+            NotifyPropertyChanged(() => Flight);
+        }
+
+        public async Task Delete()
+        {
+            await flightService.Delete(Flight.Id);
+            Flight = new Flight();
+            NotifyPropertyChanged(() => Flight);
+            List<Flight> tempFlights = await flightService.GetAll();
+            Flights = new ObservableCollection<Flight>();
+            foreach (var fl in tempFlights)
+            {
+                Flights.Add(fl);
             }
         }
     }
